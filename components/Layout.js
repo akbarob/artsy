@@ -8,7 +8,7 @@ function Layout({ children }) {
       <Head>
         <title>Artsy</title>
         <link
-          href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,300,400&display=swap"
+          href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,300,400&f[]=clash-display@200,400,700,500,600,1,300&display=swap"
           rel="stylesheet"
         ></link>
       </Head>

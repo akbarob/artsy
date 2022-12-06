@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         satoshi: ["Satoshi", "sans-serif"],
+        clashDisplay: ["Clash Display", "sans-serif"],
       },
     },
   },
