@@ -82,6 +82,7 @@ function Navbar() {
           </div>
         </div>
         <motion.nav
+          initial={false}
           animate={MobileNav ? "open" : "closed"}
           variants={variants}
           className="z-50 absolute inset-y-0 inset-x-0 w-full h-screen bg-white p-8"
@@ -114,7 +115,7 @@ function Navbar() {
                 onClick={ToggleNav}
                 variants={Itemvariants}
               >
-                {link.name}
+                <Link href={`/${link.name}`}>{link.name}</Link>
               </motion.li>
             ))}{" "}
           </motion.ul>
@@ -134,7 +135,9 @@ function Navbar() {
       {/* large menu */}
       <div className="hidden md:flex justify-between items-center mx-20 mt-[40px]">
         <div className="flex justify-start">
-          <Image src="/ARTSY.svg" alt="artsy-logo" width={100} height={100} />
+          <Link href="/Home">
+            <Image src="/ARTSY.svg" alt="artsy-logo" width={100} height={100} />
+          </Link>
         </div>
         <ul className="flex items-start gap-[47px] max-w-[485px] h-[32px]">
           {links.map((link, i) => (
