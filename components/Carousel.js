@@ -6,39 +6,72 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/effect-cards";
 
 // import "./styles.css";
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from "swiper";
-
+import { Autoplay, Pagination, Navigation, EffectCards } from "swiper";
+import Image from "next/image";
+const CarouselImages = [
+  "/images/image-230.png",
+  "/images/image-231.png",
+  "/images/image-232.png",
+  "/images/image-233.png",
+  "/images/image-234.png",
+];
 const Carousel = () => {
   return (
-    <div>
-      <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
-      >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-      </Swiper>
+    <div className="w-[90%]">
+      <div className=" hidden md:block">
+        <Swiper
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Autoplay, Pagination, Navigation]}
+          className="mySwiper"
+        >
+          {CarouselImages.map((image, i) => (
+            <SwiperSlide key={i}>
+              <Image
+                src={image}
+                alt=""
+                width={100}
+                height={30}
+                className="object-contain w-full h-[300px]"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
+      <div className=" px-10 md:hidden my-10">
+        <Swiper
+          effect={"cards"}
+          grabCursor={true}
+          modules={[EffectCards]}
+          className="mySwiper"
+        >
+          {CarouselImages.map((image, i) => (
+            <SwiperSlide key={i}>
+              <Image
+                src={image}
+                alt=""
+                width={100}
+                height={30}
+                className="object-fit w-full h-[300px]"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 };

@@ -7,11 +7,11 @@ function Layout({ children }) {
     <div>
       <Head>
         <title>Artsy</title>
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,300,400&f[]=clash-display@200,400,700,500,600,1,300&display=swap"
-          rel="stylesheet"
-        ></link>
       </Head>
+      <link
+        href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,300,400&f[]=clash-display@200,400,700,500,600,1,300&display=swap"
+        rel="stylesheet"
+      ></link>
       <header className="sticky top-0">
         <Navbar />
       </header>

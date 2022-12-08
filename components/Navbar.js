@@ -58,11 +58,11 @@ function Navbar() {
     console.log(MobileNav);
   }
   return (
-    <nav className="relative ">
+    <nav className="relative backdrop-blur-sm z-50">
       {/* Mobile menu */}
       <div className="md:hidden flex items-center  justify-between p-8">
         <button onClick={ToggleNav}>
-          <Image src="/Hamburger.svg" width={39.03} height={34.5} />
+          <Image src="/Hamburger.svg" alt="" width={39.03} height={34.5} />
         </button>
         <div>
           <Image src="/ARTSY.svg" alt="artsy-logo" width={100} height={100} />
@@ -71,7 +71,7 @@ function Navbar() {
           <div className="flex justify-end items-center">
             {Micons.map((icon, i) => (
               <Image
-                key={i.icon}
+                key={i + icon}
                 src={icon.icon}
                 alt={icon.name}
                 className="text-black"
@@ -110,8 +110,8 @@ function Navbar() {
           <motion.ul variants={container}>
             {links.map((link, i) => (
               <motion.li
-                key={i}
-                className="my-20 ml-10 font-satoshi  text-xl cursor-pointer"
+                key={i + link}
+                className="my-20 ml-10 font-satoshi text-xl cursor-pointer"
                 onClick={ToggleNav}
                 variants={Itemvariants}
               >
@@ -126,7 +126,6 @@ function Navbar() {
                 alt="artsy-logo"
                 width={100}
                 height={100}
-                className=""
               />
             </button>
           </div>
@@ -141,7 +140,7 @@ function Navbar() {
         </div>
         <ul className="flex items-start gap-[47px] max-w-[485px] h-[32px]">
           {links.map((link, i) => (
-            <li key={i} className="m">
+            <li key={i + link} className="m">
               <Link href={`/${link.name}`}>
                 <h1
                   className={
@@ -160,7 +159,7 @@ function Navbar() {
         <div className="flex justify-end items-center">
           {icons.map((icon, i) => (
             <Image
-              key={i.icon}
+              key={i}
               src={icon.icon}
               alt={icon.name}
               className="text-black"
