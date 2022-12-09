@@ -1,25 +1,15 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import MarketCard from "../../components/MarketCard";
+import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { client } from "../../lib/client";
-const content = [
-  {
-    image: "/images/ArticleImage1.png",
-    title: "The Boolean Egyptian",
-    price: "3.90",
-  },
-  {
-    image: "/images/ArticleImage3.png",
-    title: "Are We There Yet?",
-    price: "3.90",
-  },
-  {
-    image: "/images/ArticleImage2.png",
-    title: "Oloibiri 1997",
-    price: "3.90",
-  },
-];
+
 const Marketplace = ({ product }) => {
+  const [Bycategory, setBycategory] = useState(false);
+  const [ByPrice, setByPrice] = useState(false);
+  const [ByArtist, setByArtist] = useState(false);
+  const [ByYear, setByYear] = useState(false);
+
   return (
     <div className="flex flex-col justify-between items-center mt-20 ">
       <div className="flex justify-between">
@@ -38,7 +28,7 @@ const Marketplace = ({ product }) => {
         </div>
       </div>
       <div className="flex justify-between mt-12">
-        <div className="flex justify-start items-start w-[300px] mr-5">
+        <div className="flex flex-col justify-start items-start w-[300px] mr-5">
           <div className="flex justify-start items-start w-[300px] border-b-2 border-b-black">
             <Image
               src="/filter-icon.svg"
@@ -48,16 +38,117 @@ const Marketplace = ({ product }) => {
             />
             <h4 className="text-[32px]">Filter</h4>
           </div>
+          <div>
+            <div className="my-6">
+              <div
+                className="flex justify-between items-center px-5 w-[300px]"
+                onClick={() => setBycategory((prevState) => !prevState)}
+              >
+                <h1 className="text-[28px] font-medium">By Category</h1>
+                {Bycategory ? (
+                  <IoIosArrowUp size={36} />
+                ) : (
+                  <IoIosArrowDown size={36} />
+                )}{" "}
+              </div>
+              {Bycategory && (
+                <div>
+                  <p className="mb-2 text-gray-500 dark:text-gray-400">
+                    Flowbite is an open-source library of interactive components
+                    built on top of Tailwind CSS including buttons, dropdowns,
+                    modals, navbars, and more.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            <div className="my-6">
+              <div
+                className="flex justify-between items-center px-5 w-[300px]"
+                onClick={() => setByPrice(!ByPrice)}
+              >
+                <h1 className="text-[28px] font-medium">By Price</h1>
+                {ByPrice ? (
+                  <IoIosArrowUp size={36} />
+                ) : (
+                  <IoIosArrowDown size={36} />
+                )}
+              </div>
+              {ByPrice && (
+                <div>
+                  <p className="mb-2 text-gray-500 dark:text-gray-400">
+                    Flowbite is an open-source library of interactive components
+                    built on top of Tailwind CSS including buttons, dropdowns,
+                    modals, navbars, and more.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            <div className="my-6">
+              <div
+                className="flex justify-between items-center px-5 w-[300px] cursor-pointer"
+                onClick={() => setByArtist(!ByArtist)}
+              >
+                <h1 className="text-[28px] font-medium">By Artist</h1>
+                {ByArtist ? (
+                  <IoIosArrowUp size={36} />
+                ) : (
+                  <IoIosArrowDown size={36} />
+                )}{" "}
+              </div>
+              {ByArtist && (
+                <div>
+                  <p className="mb-2 text-gray-500 dark:text-gray-400">
+                    Flowbite is an open-source library of interactive components
+                    built on top of Tailwind CSS including buttons, dropdowns,
+                    modals, navbars, and more.
+                  </p>
+                </div>
+              )}
+            </div>
+            <div className="my-6">
+              {" "}
+              <div
+                className="flex justify-between items-center px-5 w-[300px] cursor-pointer"
+                onClick={() => setByYear(!ByYear)}
+              >
+                <h1 className="text-[28px] font-medium">By Colection Year</h1>
+                {ByYear ? (
+                  <IoIosArrowUp size={36} />
+                ) : (
+                  <IoIosArrowDown size={36} />
+                )}{" "}
+              </div>
+              {ByYear && (
+                <div>
+                  <p className="mb-2 text-gray-500 dark:text-gray-400">
+                    Flowbite is an open-source library of interactive components
+                    built on top of Tailwind CSS including buttons, dropdowns,
+                    modals, navbars, and more.
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-        <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-x-[53px] gap-y-[62px]">
-          {product.map((item, i) => (
-            <MarketCard
-              key={i}
-              image={item.image}
-              title={item.name}
-              price={item.price}
-            />
-          ))}
+        <div className="flex flex-col">
+          <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-x-[53px] gap-y-[62px]">
+            {product.map((item, i) => (
+              <MarketCard
+                key={i}
+                image={item.image}
+                title={item.name}
+                price={item.price}
+                slug={item.slug}
+              />
+            ))}
+          </div>
+          <div className="flex justify-center items-center my-32">
+            <button className="w-[249px] h-[73px] rounded-[10px] border-2 border-black">
+              See more
+            </button>
+          </div>
         </div>
       </div>
     </div>
