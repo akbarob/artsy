@@ -6,8 +6,8 @@ import { client, urlFor } from "../../lib/client";
 
 const ProductDetails = ({ product, products }) => {
   return (
-    <div className="flex flex-col justify-center items-center">
-      <div className="flex ml-32 mt-10">
+    <div className="flex flex-col justify-center ">
+      <div className="flex justify-start ml-32 mt-10 border-b-2 md:border-none">
         <p className="text-[#BCB7B7]">
           <Link href="/"> Home /</Link>
         </p>
@@ -16,17 +16,17 @@ const ProductDetails = ({ product, products }) => {
         </p>
         <p className="Capitalize text-black">{product.name}</p>
       </div>
-      <div className="flex justify-center items-center">
-        <div className="h-[820px] w-[1200px] border-2 flex justify-between items-center">
-          <div className="h-[626px] w-[525px] px-4">
+      <div className="flex flex-col justify-center items-center mt-[81px]">
+        <div className="lg:h-[820px] w-full lg:w-[1200px] lg:border-2 flex flex-col lg:flex-row justify-between items-center">
+          <div className=" h-[384px] lg:h-[626px] w-[357px] lg:w-[525px] px-4">
             <img
               src={urlFor(product.image)}
               alt={product.name}
-              className="w-[535px] h-[626px] object-cover"
+              className="w-[535px] h-[384px] lg:h-[626px] object-cover"
             />
           </div>
-          <div className="border-l-[2px]  h-full w-1/2">
-            <div className="flex justify-between items-center p-10 border-b-2 ">
+          <div className="lg:border-l-[2px] h-full w-full lg:w-1/2 px-10">
+            <div className="flex justify-between items-center py-5 lg:p-10 lg:border-b-2 ">
               <p>{product.name}</p>
               <div className="flex">
                 <img
@@ -37,7 +37,7 @@ const ProductDetails = ({ product, products }) => {
                 <p className="text-[30px] font-medium">{product.price}</p>
               </div>
             </div>
-            <div className="py-[60px] pl-10 border-b-2">
+            <div className="lg:py-[60px]  border-b-2">
               <p className="mb-[30px]">
                 {" "}
                 Creator:{" "}
@@ -53,10 +53,10 @@ const ProductDetails = ({ product, products }) => {
                 <span> + </span>
               </div>
               <div className="flex justify-start items-center">
-                <button className="h-[75px] w-[315px] bg-[#3341c1] rounded-[3px] text-white mr-[24px]">
+                <button className=" h-[67px] w-[214px] lg:h-[75px] lg:w-[315px] bg-[#3341c1] rounded-[3px] text-white mr-[24px]">
                   Add to cart
                 </button>
-                <button className="h-[75px] w-[110px] border-[1px] rounded-[3px] text-white flex justify-center items-center">
+                <button className=" h-[67px] lg:h-[75px] w-[66px] lg:w-[110px] border-[1px] rounded-[3px] text-white flex justify-center items-center">
                   <img
                     src="/heart-icon.svg"
                     alt="heart-icon"
@@ -66,23 +66,22 @@ const ProductDetails = ({ product, products }) => {
                 <img src="" alt="" />
               </div>
             </div>
-            <div className=" h-[70px] border-b-2 flex items-center justify-between px-10">
+            <div className=" h-[70px] border-b-2 flex items-center justify-between border-t-2 lg:border-t-none mt-[55px] lg:mt-0">
               <h3>Description</h3>
               <IoIosArrowDown size={36} />
             </div>
-            <div className="h-[70px] border-b-2 flex items-center justify-between px-10">
+            <div className="h-[70px] border-b-2 flex items-center justify-between">
               <h3>Description</h3>
               <IoIosArrowDown size={36} />
             </div>
-            <div className="h-[80px] flex  items-center justify-between px-10">
+            <div className="h-[80px] flex  items-center justify-between border-b-2 lg:border-none">
               <h3>Description</h3>
               <IoIosArrowDown size={36} />
             </div>
           </div>
         </div>
-      </div>
-      <div>
-        <div className="w-[1200px] h-[114px] shadow-lg bg-white rounded-[15px] flex justify-between items-center mt-[89px] -shadow-lg px-10">
+        <p className="mt-20 lg:hidden text-left">More from this collection </p>
+        <div className="hidden lg:flex w-[1200px] h-[114px] shadow-lg bg-white rounded-[15px] justify-between items-center mt-[89px] -shadow-lg px-10">
           <p className="font-medium text-[32px]">
             Explore more from this collection
           </p>
@@ -91,23 +90,25 @@ const ProductDetails = ({ product, products }) => {
             <img src="/right-arrow.svg" alt="" className="ml-[35px]" />
           </div>
         </div>
-      </div>
-      <div className="flex overflow-y-auto w-full gap-x-[40px] px-32 mt-[101px]">
-        {products.map((product, i) => (
-          <Collections
-            key={i}
-            image={product.image}
-            name={product.name}
-            price={product.price}
-          />
-        ))}
-      </div>
-      <div className="flex justify-center items-center mt-[109px] bg-gradient-to-r from-[#78A3AD] to-[#C05609]/50 w-[316px] h-[93px] rounded-[16px] mb-32">
-        <button className="w-[313px] h-[91px] rounded-[16px] bg-white">
-          <p className="text-[36px] text-transparent bg-clip-text bg-gradient-to-r from-[#78A3AD] to-[#C05609]/50">
-            Explore All
-          </p>
-        </button>
+
+        <div className="flex overflow-y-auto w-full gap-x-[40px] px-32 mt-[101px]">
+          {products.map((product, i) => (
+            <Collections
+              key={i}
+              image={product.image}
+              name={product.name}
+              price={product.price}
+            />
+          ))}
+        </div>
+
+        <div className="flex justify-center items-center mt-[109px] bg-gradient-to-r from-[#78A3AD] to-[#C05609]/50 w-[316px] h-[93px] rounded-[16px] mb-32">
+          <button className="w-[313px] h-[91px] rounded-[16px] bg-white">
+            <p className="text-[36px] text-transparent bg-clip-text bg-gradient-to-r from-[#78A3AD] to-[#C05609]/50">
+              Explore All
+            </p>
+          </button>
+        </div>
       </div>
     </div>
   );

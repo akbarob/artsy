@@ -58,9 +58,9 @@ function Navbar() {
     console.log(MobileNav);
   }
   return (
-    <nav className="relative backdrop-blur-sm z-50">
+    <nav className="relative backdrop-blur-sm z-50 ">
       {/* Mobile menu */}
-      <div className="md:hidden flex items-center  justify-between p-8">
+      <div className="md:hidden flex items-center  justify-between p-8 w-full">
         <button onClick={ToggleNav}>
           <Image src="/Hamburger.svg" alt="" width={39.03} height={34.5} />
         </button>
