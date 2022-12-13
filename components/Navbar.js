@@ -34,11 +34,10 @@ const Itemvariants = {
 };
 const links = [
   { name: "Home", to: "/home" },
-  { name: "Marketplace", to: "/home" },
+  { name: "Marketplace", to: "/Marketplace" },
+  { name: "Auctions", to: "/Auctions" },
 
-  { name: "Auctions", to: "/home" },
-
-  { name: "Drop", to: "/drop" },
+  { name: "Drop", to: "/Drop" },
 ];
 const icons = [
   { name: "search", to: "/home", icon: "/Search icon.svg" },

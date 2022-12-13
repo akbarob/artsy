@@ -1,3 +1,4 @@
+import drops from './drops'
 import marketplace from './marketplace'
 
-export const schemaTypes = [marketplace]
+export const schemaTypes = [marketplace, drops]

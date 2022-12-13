@@ -22,7 +22,6 @@ const index = () => {
       <Section />
       <Explore />
       <TopCreators />
-      <Footer />
     </div>
   );
 };

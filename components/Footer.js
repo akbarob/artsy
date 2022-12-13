@@ -13,26 +13,26 @@ const links = [
 const Footer = () => {
   return (
     <div className="flex flex-col w-full px-10 mt-20">
-      <div className="w-full md:h-[320px] md:border-2 md:border-black flex flex-col justify-center items-center">
+      <div className="w-full md:h-[320px] md:border-2 md:border-black flex flex-col justify-center md:items-center">
         <h3 className="text-[30.21px] font-normal font-clashDisplay">
           Newsletter
         </h3>
-        <p className="text-[32.21px] font-normal">
+        <p className="text-[12px] lg:text-[32.21px] font-normal">
           Subscribe to get daily updates on new drops & exciting deals{" "}
         </p>
-        <div className="flex mt-[34px]">
+        <div className="flex flex-col md:flex-row mt-[34px]">
           <input
             type="email"
             placeholder="Enter your Email"
-            className="border-black border-2 mr-[23px] w-[446px] indent-5"
+            className="border-black border-2 mr-[23px] w-full md:w-[446px] h-[53px] md:h-[80px] indent-5"
           />
-          <button className="h-[80px] w-[181.63px] flex justify-center items-center font-clashDisplay bg-black text-white">
+          <button className="mt-[26px] md:mt-0 h-[53px] md:h-[80px] w-[181.63px] flex justify-center items-center font-clashDisplay bg-black text-white">
             Subscribe
           </button>
         </div>
       </div>
-      <div className="flex flex-row justify-between items-center px-32 mt-[60px]">
-        <div>
+      <div className="flex flex-row justify-between items-center lg:px-32 mt-[60px]">
+        <div className="hidden lg:flex">
           <Image
             src="/ARTSY.svg"
             alt="artsy-logo"
@@ -41,10 +41,10 @@ const Footer = () => {
             className="w-[150px] h-[150px]"
           />
         </div>
-        <div className="flex">
+        <div className="hidden lg:flex">
           <ul>
             {links.map((link) => (
-              <li key={link.name} className="text-[26px]">
+              <li key={link.name} className="text-[26px] font-[400px]">
                 <Link href={`/${link.name}`}>{link.name}</Link>
               </li>
             ))}
@@ -58,18 +58,19 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <p className="text-[26px] font-medium flex justify-start items-center">
+          <p className="flex lg:hidden">Reach Us</p>
+          <p className="text-[12px] lg:text-[26px] font-medium flex justify-start items-center">
             {" "}
             <VscMail className="mr-4" size={40} />
             artsystudios@gmail.com
           </p>
-          <address className="text-[26px] font-medium flex justify-start items-center">
+          <address className="text-[12px] lg:text-[26px] font-medium flex justify-start items-center">
             <VscLocation className="mr-4" size={40} />
             Lagos, Nigeria
           </address>
         </div>
       </div>
-      <p className="text-center mt-10 text-[24px] font-medium">
+      <p className="text-center mt-10 text-[12px] lg:text-[24px] font-medium text-[#333333]">
         Artsystudios © 2022. All Rights Reserved.
       </p>
     </div>

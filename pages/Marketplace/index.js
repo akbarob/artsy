@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import MarketCard from "../../components/MarketCard";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { client } from "../../lib/client";
+import Link from "next/link";
 
 const Marketplace = ({ product }) => {
   const [Bycategory, setBycategory] = useState(false);
@@ -11,11 +12,11 @@ const Marketplace = ({ product }) => {
   const [ByYear, setByYear] = useState(false);
 
   return (
-    <div className="flex flex-col justify-between items-center mt-20 ">
-      <div className="flex justify-between">
+    <div className="flex flex-col justify-center mt-20 ">
+      <div className="flex justify-center items-center">
         <input
           placeholder="search"
-          className="w-[215px] h-[60px] bg-[#F4F2F2] rounded-[15px] mr-[72px]"
+          className="w-[215px] h-[60px] bg-[#F4F2F2] rounded-[15px] mr-[72px] hidden lg:flex indent-10"
         />
         <div className="bg-white rounded-[15px] border-t-2 shadow-md w-[913px] h-[60px] flex justify-between items-center px-5">
           <p className="text-[18px] text-black font-normal">
@@ -27,8 +28,8 @@ const Marketplace = ({ product }) => {
           </select>
         </div>
       </div>
-      <div className="flex justify-between mt-12">
-        <div className="flex flex-col justify-start items-start w-[300px] mr-5">
+      <div className="flex justify-center mt-12">
+        <div className="hidden lg:flex flex-col justify-start items-start w-[300px] mr-5">
           <div className="flex justify-start items-start w-[300px] border-b-2 border-b-black">
             <Image
               src="/filter-icon.svg"
@@ -144,11 +145,21 @@ const Marketplace = ({ product }) => {
               />
             ))}
           </div>
-          <div className="flex justify-center items-center my-32">
-            <button className="w-[249px] h-[73px] rounded-[10px] border-2 border-black">
-              See more
-            </button>
-          </div>
+        </div>
+      </div>
+      <div className="flex justify-end lg:justify-center items-center my-10 lg:my-32">
+        <button className="hidden lg:flex w-[249px] h-[73px] rounded-[10px] border-2 border-black items-center justify-center">
+          See more
+        </button>
+        <div className="flex items-center lg:hidden mr-12">
+          <p>Load more</p>
+          <Image
+            src="/arrow-right.svg"
+            alt="arrow-right"
+            height={53}
+            width={54}
+            className="cursor-pointer ml-6"
+          />
         </div>
       </div>
     </div>
