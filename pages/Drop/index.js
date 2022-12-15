@@ -25,7 +25,7 @@ const Drop = ({ drops }) => {
           <option>Sort by</option>
         </select>
       </div>
-      <div className=" ">
+      <div className="flex flex-col justify-center items-center">
         {drops.map((item, i) => (
           <Drops drops={item} key={i} />
         ))}

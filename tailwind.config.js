@@ -10,6 +10,7 @@ module.exports = {
       fontFamily: {
         satoshi: ["Satoshi", "sans-serif"],
         clashDisplay: ["Clash Display", "sans-serif"],
+        cardo: ["Cardo", "serif"],
       },
     },
   },

@@ -1,10 +1,18 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import Collections from "../../components/Collections";
 import { client, urlFor } from "../../lib/client";
+import { increment, decrement, AddToCart, setQty } from "../../Redux/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const ProductDetails = ({ product, products }) => {
+  const quantity = useSelector((state) => state.cart.qty);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setQty(1));
+  }, [product]);
+
   return (
     <div className="flex flex-col justify-center ">
       <div className="flex justify-start ml-32 mt-10 border-b-2 md:border-none">
@@ -47,13 +55,19 @@ const ProductDetails = ({ product, products }) => {
               </p>
               <p className="mb-[30px]"> Made in Italy</p>
               <p className="mb-[30px]">Total Views : 1.8k</p>
-              <div className="flex mb-[60px]">
+              <div className="flex mb-[60px] w-20 justify-between">
                 {" "}
-                <span> - </span> <p>0</p>
-                <span> + </span>
+                <button onClick={() => dispatch(decrement())}> - </button>{" "}
+                <p>{quantity}</p>
+                <button onClick={() => dispatch(increment())}> + </button>
               </div>
               <div className="flex justify-start items-center">
-                <button className=" h-[67px] w-[214px] lg:h-[75px] lg:w-[315px] bg-[#3341c1] rounded-[3px] text-white mr-[24px]">
+                <button
+                  onClick={() => {
+                    dispatch(AddToCart({ product, quantity }));
+                  }}
+                  className=" h-[67px] w-[214px] lg:h-[75px] lg:w-[315px] bg-[#3341c1] rounded-[3px] text-white mr-[24px]"
+                >
                   Add to cart
                 </button>
                 <button className=" h-[67px] lg:h-[75px] w-[66px] lg:w-[110px] border-[1px] rounded-[3px] text-white flex justify-center items-center">
@@ -98,6 +112,7 @@ const ProductDetails = ({ product, products }) => {
               image={product.image}
               name={product.name}
               price={product.price}
+              slug={product.slug}
             />
           ))}
         </div>

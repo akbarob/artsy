@@ -15,11 +15,11 @@ const Drops = ({
   }
   console.log(color());
   return (
-    <div className="flex flex-col md:flex-row md:justify-between md:items-center w-[398px] md:w-full lg:max-w-[1350px] p-4 px-20">
-      <div className="relative w-[398px] md:w-2/3 ">
+    <div className="flex flex-col md:flex-row justify-between items-center w-[398px] md:w-full lg:max-w-[1350px] my-4 md:my-8 md:px-4">
+      <div className="relative w-[94%] md:w-2/3 flex justify-center items-center">
         <img
           src={urlFor(image)}
-          className="h-[224px] md:h-[250px] lg:h-full w-full md:w-[683px] object-fit rounded-[15px]"
+          className="h-[224px] md:h-[250px] w-full lg:h-full md:w-[683px] object-fit rounded-[15px]"
         />{" "}
         <div className="p-4 absolute inset-x-0 inset-y-0 flex flex-col justify-between md:justify-end h-[224px] md:h-[250px] lg:h-full w-full md:max-w-[683px]">
           <div className="flex justify-end items-end md:hidden">
@@ -38,7 +38,7 @@ const Drops = ({
         </div>
       </div>
 
-      <div className="px-4 md:px-0 md:w-4/5 lg: max-w-[443px]  ">
+      <div className=" w-[94%] md:w-3/5 lg: max-w-[443px] p-2 md:pl-4">
         <div
           className={`w-[189px] h-[43px] ${color(
             status

@@ -33,20 +33,20 @@ const Itemvariants = {
   },
 };
 const links = [
-  { name: "Home", to: "/home" },
-  { name: "Marketplace", to: "/Marketplace" },
-  { name: "Auctions", to: "/Auctions" },
+  { name: "Home", to: "home" },
+  { name: "Marketplace", to: "Marketplace" },
+  { name: "Auctions", to: "Auctions" },
 
   { name: "Drop", to: "/Drop" },
 ];
 const icons = [
-  { name: "search", to: "/home", icon: "/Search icon.svg" },
-  { name: "cart", to: "/home", icon: "/Cart icon.svg" },
-  { name: "noti", to: "/home", icon: "/Notification icon.svg" },
+  { name: "search", to: "home", icon: "/Search icon.svg" },
+  { name: "cart", to: "Checkout", icon: "/Cart icon.svg" },
+  { name: "noti", to: "home", icon: "/Notification icon.svg" },
 ];
 const Micons = [
-  { name: "search", to: "/home", icon: "/Search icon.svg" },
-  { name: "cart", to: "/home", icon: "/Cart icon.svg" },
+  { name: "search", to: "home", icon: "/Search icon.svg" },
+  { name: "cart", to: "Checkout", icon: "/Cart icon.svg" },
   // { name: "noti", to: "/home", icon: "/Notification icon.svg" },
 ];
 function Navbar() {
@@ -64,19 +64,22 @@ function Navbar() {
           <Image src="/Hamburger.svg" alt="" width={39.03} height={34.5} />
         </button>
         <div>
-          <Image src="/ARTSY.svg" alt="artsy-logo" width={100} height={100} />
+          <Link href="/Home">
+            <Image src="/ARTSY.svg" alt="artsy-logo" width={100} height={100} />
+          </Link>
         </div>
         <div>
           <div className="flex justify-end items-center">
             {Micons.map((icon, i) => (
-              <Image
-                key={i + icon}
-                src={icon.icon}
-                alt={icon.name}
-                className="text-black"
-                width={28}
-                height={28}
-              />
+              <Link href={`/${icon.to}`} key={i}>
+                <Image
+                  src={icon.icon}
+                  alt={icon.name}
+                  className="text-black"
+                  width={28}
+                  height={28}
+                />
+              </Link>
             ))}
           </div>
         </div>
@@ -109,7 +112,7 @@ function Navbar() {
           <motion.ul variants={container}>
             {links.map((link, i) => (
               <motion.li
-                key={i + link}
+                key={i}
                 className="my-20 ml-10 font-satoshi text-xl cursor-pointer"
                 onClick={ToggleNav}
                 variants={Itemvariants}
@@ -139,7 +142,7 @@ function Navbar() {
         </div>
         <ul className="flex items-start gap-[47px] max-w-[485px] h-[32px]">
           {links.map((link, i) => (
-            <li key={i + link} className="m">
+            <li key={i} className="m">
               <Link href={`/${link.name}`}>
                 <h1
                   className={
@@ -148,7 +151,7 @@ function Navbar() {
                       : ""
                   }
                 >
-                  {console.log(router.pathname)}
+                  {/* {console.log(router.pathname)} */}
                   {link.name}
                 </h1>
               </Link>
@@ -157,14 +160,15 @@ function Navbar() {
         </ul>
         <div className="flex justify-end items-center">
           {icons.map((icon, i) => (
-            <Image
-              key={i}
-              src={icon.icon}
-              alt={icon.name}
-              className="text-black"
-              width={28}
-              height={28}
-            />
+            <Link key={i} href={`/${icon.to}`} className="cursor-pointer">
+              <Image
+                src={icon.icon}
+                alt={icon.name}
+                className="text-black"
+                width={28}
+                height={28}
+              />
+            </Link>
           ))}
         </div>
       </div>
