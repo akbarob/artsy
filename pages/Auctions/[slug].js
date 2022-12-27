@@ -22,7 +22,7 @@ const AuctionStream = ({ auction }) => {
   // .log(navbarVisible, footerVisible, "visibility");
   return (
     <div>
-      <div className="md:hidden flex flex-col justify-between h-screen ">
+      <div className="lg:hidden flex flex-col justify-between h-screen ">
         <img
           alt=""
           src={urlFor(auction.image)}
