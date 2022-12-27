@@ -7,7 +7,7 @@ import {
   setFooterVisibility,
 } from "../../Redux/generalSlice";
 
-const AuctionStream = () => {
+const AuctionStream = ({ auction }) => {
   const dispatch = useDispatch();
   const navbarVisible = useSelector((state) => state.general.navbarVisible);
   const footerVisible = useSelector((state) => state.general.footerVisible);
