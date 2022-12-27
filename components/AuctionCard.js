@@ -12,7 +12,7 @@ import { urlFor } from "../lib/client";
 import Link from "next/link";
 
 const AuctionCard = ({ auction }) => {
-  console.log(auction);
+  // console.log(auction);
   return (
     <div>
       <Swiper

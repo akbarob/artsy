@@ -151,7 +151,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
   const productsQuery = `*[_type == "marketplace"]`;
 
   const product = await client.fetch(query);
-  console.log(product);
+  // console.log(product);
   const products = await client.fetch(productsQuery);
   //   const slug = `${slug}`;
   return {

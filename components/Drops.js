@@ -13,7 +13,7 @@ const Drops = ({
       return "bg-[#3EA03B]";
     }
   }
-  console.log(color());
+  // console.log(color());
   return (
     <div className="flex flex-col md:flex-row justify-between items-center w-[398px] md:w-full lg:max-w-[1350px] my-4 md:my-8 md:px-4">
       <div className="relative w-[94%] md:w-2/3 flex justify-center items-center">

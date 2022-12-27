@@ -20,7 +20,7 @@ const TopCreators = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       handleNext();
-      console.log(index);
+      // console.log(index);
     }, 5000);
     return () => {
       clearInterval(timer);

@@ -35,7 +35,7 @@ export const cartSlice = createSlice({
     SetCart: (state, action) => {
       // const { items, price, quantity } = action.payload;
       // console.log("SLICE", { items, price, quantity });
-      console.log("slicecart");
+      // console.log("slicecart");
       state.cartItems = JSON.parse(localStorage.getItem("cart"));
       state.totalPrice = JSON.parse(localStorage.getItem("cartPrice"));
       state.totalQuantity = JSON.parse(localStorage.getItem("cartQuantity"));

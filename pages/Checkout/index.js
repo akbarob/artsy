@@ -15,14 +15,14 @@ const ShoppingCart = () => {
   const Shipping = 4.2;
   const [routeIndex, setrouteIndex] = useState(0);
   const dispatch = useDispatch();
-  console.log(cart);
+  // console.log(cart);
 
   useEffect(() => {
     // const items = JSON.parse(localStorage.getItem("cart"));
     // const price = JSON.parse(localStorage.getItem("cartPrice"));
     // const quantity = JSON.parse(localStorage.getItem("cartQuantity"));
     dispatch(SetCart());
-    console.log("cartset");
+    // console.log("cartset");
     // console.log(items, price, quantity);
   }, [dispatch]);
   const style = {
@@ -48,7 +48,7 @@ const ShoppingCart = () => {
       </div>
       {routeIndex === 0 && (
         <div>
-          {cart.length >= 1 ? (
+          {cart?.length >= 1 ? (
             <div>
               <div className="h-[65vh] md:h-[80vh] overflow-y-auto  border-t-2 ">
                 {cart.map((item, i) => (
