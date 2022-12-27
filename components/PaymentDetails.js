@@ -42,6 +42,7 @@ const PaymentDetails = () => {
           <div className="flex gap-x-[26px] justify-center">
             {wallet.map((item, i) => (
               <img
+                alt=""
                 src={item}
                 key={i}
                 className="w-[42px] h-[42px] object-fill"

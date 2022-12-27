@@ -10,11 +10,12 @@ const TopBids = () => {
       <div className="flex flex-col w-full rounded-[15px] shadow-md border-t-[1px] mb-[30px] px-4">
         <div className="flex justify-end">
           <div className="my-1 w-[30px] h-[30px] rounded-full border-[1px] flex justify-center items-center">
-            <img src="/Audition-heartGray.svg" />
+            <img src="/Audition-heartGray.svg" alt="" />
           </div>
         </div>
         <div clas>
           <img
+            alt=""
             src={CarouselImages[0]}
             className="h-[184px] lg:h-[280px] w-full object-fit rounded-[15px]"
           />{" "}

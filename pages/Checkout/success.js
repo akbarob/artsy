@@ -16,11 +16,11 @@ const Success = () => {
       // dispatch(setNavbarVisibility(true));
       dispatch(setFooterVisibility(true));
     };
-  }, []);
+  }, [dispatch]);
   console.log(navbarVisible, footerVisible, "visibility");
   return (
     <div className="flex flex-col justify-center items-center h-[85vh]">
-      <img src="/images/successImage.png" className="" />
+      <img src="/images/successImage.png" className="" alt="" />
       <h2 className="text-[18px] font-[500px] leading-[28.21px] mt-[75px] mb-[20px]">
         Hey Celestina, thank you for your purchase.{" "}
       </h2>

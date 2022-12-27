@@ -11,7 +11,7 @@ const ProductDetails = ({ product, products }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setQty(1));
-  }, [product]);
+  }, [product, dispatch]);
 
   return (
     <div className="flex flex-col justify-center ">

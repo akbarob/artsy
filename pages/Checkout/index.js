@@ -24,7 +24,7 @@ const ShoppingCart = () => {
     dispatch(SetCart());
     console.log("cartset");
     // console.log(items, price, quantity);
-  }, []);
+  }, [dispatch]);
   const style = {
     details_div: "flex justify-between items-center w-full md:mb-[32px]",
     p: "text-[#888888] text-[20px]",

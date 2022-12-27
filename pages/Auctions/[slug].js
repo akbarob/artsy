@@ -6,8 +6,10 @@ import {
   setNavbarVisibility,
   setFooterVisibility,
 } from "../../Redux/generalSlice";
-const livestream = ({ auction, slug }) => {
-  console.log(auction);
+
+import React from "react";
+
+const [slug] = () => {
   const dispatch = useDispatch();
   const navbarVisible = useSelector((state) => state.general.navbarVisible);
   const footerVisible = useSelector((state) => state.general.footerVisible);
@@ -18,13 +20,13 @@ const livestream = ({ auction, slug }) => {
       dispatch(setNavbarVisibility(true));
       dispatch(setFooterVisibility(true));
     };
-  }, []);
+  }, [dispatch]);
   console.log(navbarVisible, footerVisible, "visibility");
-  // console.log(auction);
   return (
     <div>
       <div className="md:hidden flex flex-col justify-between h-screen ">
         <img
+          alt=""
           src={urlFor(auction.image)}
           className="absolute z-30 w-full h-full object-fit "
         />
@@ -37,12 +39,12 @@ const livestream = ({ auction, slug }) => {
                 LIVE
               </div>
               <div className="w-[49px] h-[27px] bg-white/40 flex justify-center items-center text-white rounded-[5px]">
-                <img src="/eyes-icon.svg" />
+                <img src="/eyes-icon.svg" alt="" />
                 <span>546</span>
               </div>
               <Link href="/Auctions">
                 {" "}
-                <img src="/Close.svg" className="stroke-white" />{" "}
+                <img alt="" src="/Close.svg" className="stroke-white" />{" "}
               </Link>
             </div>
           </div>
@@ -55,13 +57,13 @@ const livestream = ({ auction, slug }) => {
                 className="bg-transparent outline-none w-full text-white"
               />
               <button>
-                <img src="/Send.svg" />
+                <img src="/Send.svg" alt="" />
               </button>
             </div>
 
             <div>
               {" "}
-              <img src="/LiveLove-icon.svg" />
+              <img src="/LiveLove-icon.svg" alt="" />
             </div>
           </div>
         </div>
@@ -78,7 +80,7 @@ const livestream = ({ auction, slug }) => {
               <div className="flex justify-between px-10">
                 <Link href="/Auctions">
                   {" "}
-                  <img src="/Close.svg" className="stroke-white" />{" "}
+                  <img src="/Close.svg" className="stroke-white" alt="" />{" "}
                 </Link>
                 <div className="w-[49px] h-[27px] bg-[#006CA2] flex justify-center items-center text-white rounded-[5px]">
                   LIVE
@@ -106,7 +108,7 @@ const livestream = ({ auction, slug }) => {
                   className="bg-transparent outline-none w-full text-black"
                 />
                 <button className="grid place-content-center">
-                  <img src="/Send.svg" className="w-[54px] h-[51px]" />
+                  <img src="/Send.svg" className="w-[54px] h-[51px]" alt="" />
                 </button>
               </div>
 
@@ -115,6 +117,7 @@ const livestream = ({ auction, slug }) => {
                 <img
                   src="/LiveLove-icon.svg"
                   className="w-[59.79px] h-[52.67px]"
+                  alt=""
                 />
               </div>
             </div>
@@ -124,6 +127,7 @@ const livestream = ({ auction, slug }) => {
     </div>
   );
 };
+
 export const getStaticPaths = async () => {
   const query = `*[_type == 'auction'] {
     slug{
@@ -149,4 +153,4 @@ export const getStaticProps = async ({ params: { slug } }) => {
     props: { auction, slug },
   };
 };
-export default livestream;
+export default [slug];

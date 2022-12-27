@@ -18,6 +18,7 @@ const Drops = ({
     <div className="flex flex-col md:flex-row justify-between items-center w-[398px] md:w-full lg:max-w-[1350px] my-4 md:my-8 md:px-4">
       <div className="relative w-[94%] md:w-2/3 flex justify-center items-center">
         <img
+          alt=""
           src={urlFor(image)}
           className="h-[224px] md:h-[250px] w-full lg:h-full md:w-[683px] object-fit rounded-[15px]"
         />{" "}

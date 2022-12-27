@@ -33,7 +33,7 @@ function Layout({ children }) {
   useEffect(() => {
     window.addEventListener("scroll", listenToScroll);
     return () => window.removeEventListener("scroll", listenToScroll);
-  }, []);
+  }, [listenToScroll]);
 
   return (
     <div className="">

@@ -9,6 +9,7 @@ const Cartitem = ({ product }) => {
   return (
     <div className="flex justify-between items-start w-full mb-[50px] pb-14 border-b-2 mt-6 px-2 ">
       <img
+        alt=""
         src={image && urlFor(image)}
         className="h-[126px] w-[126px] md:w-[210px] md:h-[196px] object-contain"
       />

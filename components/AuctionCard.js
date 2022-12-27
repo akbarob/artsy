@@ -30,6 +30,7 @@ const AuctionCard = ({ auction }) => {
               <div className="w-[228px] relative">
                 {" "}
                 <img
+                  alt=""
                   src={urlFor(item.image)}
                   className="w-full rounded-[15px]"
                 />
@@ -59,6 +60,7 @@ const AuctionCard = ({ auction }) => {
               <div className="w-[485px] relative">
                 {" "}
                 <img
+                  alt=""
                   src={urlFor(item.image)}
                   className="w-[485px] h-full rounded-[15px] object-cover"
                 />
@@ -88,6 +90,7 @@ const AuctionCard = ({ auction }) => {
               <div className="w-[485px] relative">
                 {" "}
                 <img
+                  alt=""
                   src={urlFor(item.image)}
                   className="w-[485px] h-full rounded-[15px] object-cover"
                 />
