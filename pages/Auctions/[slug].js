@@ -19,7 +19,7 @@ const AuctionStream = ({ auction }) => {
       dispatch(setFooterVisibility(true));
     };
   }, [dispatch]);
-  console.log(navbarVisible, footerVisible, "visibility");
+  // .log(navbarVisible, footerVisible, "visibility");
   return (
     <div>
       <div className="md:hidden flex flex-col justify-between h-screen ">
