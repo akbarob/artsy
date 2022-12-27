@@ -18,7 +18,7 @@ function Layout({ children }) {
   console.log(router.pathname);
 
   const listenToScroll = () => {
-    let heightToHideFrom = 500;
+    let heightToHideFrom = 390;
     const winScroll =
       document.body.scrollTop || document.documentElement.scrollTop;
 

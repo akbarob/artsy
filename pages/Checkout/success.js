@@ -1,6 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setFooterVisibility,
+  setNavbarVisibility,
+} from "../../Redux/generalSlice";
 
 const Success = () => {
+  const dispatch = useDispatch();
+  const navbarVisible = useSelector((state) => state.general.navbarVisible);
+  const footerVisible = useSelector((state) => state.general.footerVisible);
+  useEffect(() => {
+    // dispatch(setNavbarVisibility(false));
+    dispatch(setFooterVisibility(false));
+    return () => {
+      // dispatch(setNavbarVisibility(true));
+      dispatch(setFooterVisibility(true));
+    };
+  }, []);
+  console.log(navbarVisible, footerVisible, "visibility");
   return (
     <div className="flex flex-col justify-center items-center h-[85vh]">
       <img src="/images/successImage.png" className="" />
