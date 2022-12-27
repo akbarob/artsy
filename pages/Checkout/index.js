@@ -32,20 +32,23 @@ const ShoppingCart = () => {
   };
   return (
     <div className="flex flex-col md:px-32 px-4 h-full mb-16">
-      <div className="flex justify-center items-center mt-[32px] mb-[80px]">
-        {routes.map((item, i) => (
-          <h2
-            key={i}
-            className={`hidden lg:block cursor-pointer border-b-2 px-6 ${
-              i === routeIndex && "border-b-black"
-            }`}
-            onClick={() => setrouteIndex(i)}
-          >
-            {" "}
-            {item}
-          </h2>
-        ))}
-      </div>
+      {cart && (
+        <div className="flex justify-center items-center mt-[32px] mb-[80px]">
+          {routes.map((item, i) => (
+            <h2
+              key={i}
+              className={`hidden lg:block cursor-pointer border-b-2 px-6 ${
+                i === routeIndex && "border-b-black"
+              }`}
+              onClick={() => setrouteIndex(i)}
+            >
+              {" "}
+              {item}
+            </h2>
+          ))}
+        </div>
+      )}
+
       {routeIndex === 0 && (
         <div>
           {cart?.length >= 1 ? (
