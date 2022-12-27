@@ -7,8 +7,6 @@ import {
   setFooterVisibility,
 } from "../../Redux/generalSlice";
 
-import React from "react";
-
 const [slug] = () => {
   const dispatch = useDispatch();
   const navbarVisible = useSelector((state) => state.general.navbarVisible);
