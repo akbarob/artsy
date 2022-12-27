@@ -12,7 +12,7 @@ const Marketplace = ({ product }) => {
   const [ByYear, setByYear] = useState(false);
 
   return (
-    <div className="flex flex-col justify-center mt-20 ">
+    <div className="flex flex-col justify-center mt-20 px-8 lg:px-16">
       <div className="flex justify-center items-center">
         <input
           placeholder="search"
