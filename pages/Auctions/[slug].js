@@ -7,7 +7,7 @@ import {
   setFooterVisibility,
 } from "../../Redux/generalSlice";
 
-const [slug] = () => {
+const AuctionStream = () => {
   const dispatch = useDispatch();
   const navbarVisible = useSelector((state) => state.general.navbarVisible);
   const footerVisible = useSelector((state) => state.general.footerVisible);
@@ -151,4 +151,4 @@ export const getStaticProps = async ({ params: { slug } }) => {
     props: { auction, slug },
   };
 };
-export default [slug];
+export default AuctionStream;
