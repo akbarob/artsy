@@ -1,0 +1,96 @@
+import Link from "next/link";
+import React from "react";
+import { useForm } from "react-hook-form";
+const wallet = [
+  "/images/MetaMask.png",
+  "/images/Coinbase.png",
+  "/images/WalletConnect.png",
+  "/images/Phantom.png",
+  "/images/add-wallet.png",
+];
+const style = {
+  label: "text-[18px] leadding-[24px] text-[#888888] mb-[15px] mt-[30px]",
+  input:
+    "border-[0.5px] border-[#747474] border-solid bg-[#F2F2F2] rounded-[10px] w-full h-[50px] indent-3 outline-none",
+};
+const PaymentDetails = () => {
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => console.log(data);
+  return (
+    <div className="flex flex-col lg:flex-row">
+      <div>
+        <p></p>
+        <p>Secure server</p>
+      </div>
+      <div>
+        <h2>Select your wallet</h2>
+        <h4 className="text-[16px] text-[#616161] leading-[25.22px]">
+          Connect with one of our available wallet providers or add and connect
+          a new wallet.{" "}
+        </h4>
+        <div className="flex gap-x-[26px] justify-center">
+          {wallet.map((item, i) => (
+            <img src={item} key={i} className="w-[42px] h-[42px] object-fill" />
+          ))}
+        </div>
+        <div>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div>
+              <label>
+                <p className={style.label}>Wallet</p>
+                <input
+                  {...register("fullname", { required: true, maxLength: 25 })}
+                  className={style.input}
+                />
+              </label>
+            </div>
+            <div>
+              <label>
+                <p className={style.label}>Key</p>
+                <input
+                  {...register("fullname", { required: true, maxLength: 25 })}
+                  className={style.input}
+                />
+              </label>
+            </div>
+            <div>
+              <label>
+                <p className={style.label}>Expiry date</p>
+                <input
+                  {...register("fullname", { required: true, maxLength: 25 })}
+                  className={style.input}
+                />
+              </label>
+            </div>
+            <div>
+              <label>
+                <p className={style.label}>Safe code</p>
+                <input
+                  {...register("fullname", { required: true, maxLength: 25 })}
+                  className={style.input}
+                />
+                <label className="mt-[10px] flex">
+                  {" "}
+                  <input type="checkbox" {...register("news")} />{" "}
+                  <p className="text-[13px]  text-[#888888] ml-2">
+                    Save my wallet details & information for future transactions{" "}
+                  </p>
+                </label>
+              </label>
+            </div>
+          </form>
+        </div>
+        <div className="flex flex-col justify-center items-center mt-[45px] md:mt-0">
+          <Link href="/Checkout/success">
+            <button className="text-white bg-[#3341C1] flex justify-center items-center w-[278px] h-[60px] md:w-[534px] md:h-[107px] md:text-[32px]">
+              Confirm
+            </button>
+          </Link>
+        </div>
+      </div>
+      <div></div>
+    </div>
+  );
+};
+
+export default PaymentDetails;

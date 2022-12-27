@@ -49,17 +49,16 @@ const Micons = [
   { name: "cart", to: "Checkout", icon: "/Cart icon.svg" },
   // { name: "noti", to: "/home", icon: "/Notification icon.svg" },
 ];
-function Navbar() {
+function Navbar({ MobileNav, setMobileNav }) {
   const router = useRouter();
-  const [MobileNav, setMobileNav] = useState(false);
   function ToggleNav() {
     setMobileNav(!MobileNav);
     console.log(MobileNav);
   }
   return (
-    <nav className="relative backdrop-blur-sm z-50 ">
+    <nav className="backdrop-blur-sm ">
       {/* Mobile menu */}
-      <div className="md:hidden flex items-center  justify-between p-8 w-full">
+      <div className="md:hidden flex items-center justify-between p-8 w-full">
         <button onClick={ToggleNav}>
           <Image src="/Hamburger.svg" alt="" width={39.03} height={34.5} />
         </button>
@@ -87,7 +86,7 @@ function Navbar() {
           initial={false}
           animate={MobileNav ? "open" : "closed"}
           variants={variants}
-          className="z-50 absolute inset-y-0 inset-x-0 w-full h-screen bg-white p-8"
+          className="z-50 fixed inset-y-0 inset-x-0 w-full h-screen bg-white p-8 overscroll-none overflow-y-hidden"
         >
           <header className="flex justify-between items-center mx-10">
             <div>
@@ -113,7 +112,7 @@ function Navbar() {
             {links.map((link, i) => (
               <motion.li
                 key={i}
-                className="my-20 ml-10 font-satoshi text-xl cursor-pointer"
+                className="my-20 ml-10 font-satoshi text-xl cursor-pointer "
                 onClick={ToggleNav}
                 variants={Itemvariants}
               >

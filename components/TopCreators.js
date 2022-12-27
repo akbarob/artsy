@@ -1,3 +1,4 @@
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 const CreatorsImages = [
@@ -56,14 +57,18 @@ const TopCreators = () => {
         Everything looks more exciting.”– Jack Lowden
       </p>
 
-      <div className="absolute -bottom-5 right-10 z-20">
-        <div className="z-20">
-          <img
+      <div className="absolute h-full -bottom-5 right-10 z-20">
+        <AnimatePresence>
+          <motion.img
+            className="w-full h-full object-contain "
             src={CreatorsImages[index]}
+            key={CreatorsImages[index]}
             alt="creator"
-            className="w-[237px] h-[240] md:w-[832px] transition-all ease-in-out duration-150 "
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 0, 1], transitionDuration: 0.8 }}
+            // exit={{ opacity: [1, 1, 0] }}
           />
-        </div>
+        </AnimatePresence>
       </div>
       <div className=" absolute bottom-10 right-5 flex flex-col -mt-32 ml-44 z-10 text-right">
         <h6 className="font-bold font-clashDisplay text-[32px] md:text-[75px]">

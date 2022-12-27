@@ -21,8 +21,10 @@ const content = [
 
 const FeaturedProducts = () => {
   return (
-    <div className="w-full p-10">
-      <h3 className="text-left font-medium text-[48px]">Featured Products</h3>
+    <div className="w-full p-6 md:p-10">
+      <h3 className="text-left font-medium text-[28px] leading-[43.88px] lg:text-[48px]">
+        Featured Products
+      </h3>
       {content.map((content, i) => (
         <Article
           key={i}

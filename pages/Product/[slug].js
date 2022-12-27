@@ -64,6 +64,7 @@ const ProductDetails = ({ product, products }) => {
               <div className="flex justify-start items-center">
                 <button
                   onClick={() => {
+                    // window.navigator.vibrate(500);
                     dispatch(AddToCart({ product, quantity }));
                   }}
                   className=" h-[67px] w-[214px] lg:h-[75px] lg:w-[315px] bg-[#3341c1] rounded-[3px] text-white mr-[24px]"

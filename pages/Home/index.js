@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Carousel from "../../components/Carousel";
 import Explore from "../../components/Explore";
 import FeaturedProducts from "../../components/FeaturedProducts";
@@ -8,7 +8,7 @@ import TopCreators from "../../components/TopCreators";
 
 const index = () => {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center z-10">
       <h1 className="font-clashDisplay font-semibold text-[32px] md:text-[80px] text-center max-w-[362px] md:max-w-[1068px]">
         Photography is poetry & beautiful untold stories
       </h1>

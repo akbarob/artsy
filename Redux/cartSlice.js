@@ -1,4 +1,5 @@
 import { createSlice, current } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 const initialState = {
   showCart: false,
   cartItems: [],
@@ -31,8 +32,18 @@ export const cartSlice = createSlice({
     setQty: (state, action) => {
       state.qty = action.payload;
     },
+    SetCart: (state, action) => {
+      // const { items, price, quantity } = action.payload;
+      // console.log("SLICE", { items, price, quantity });
+      console.log("slicecart");
+      state.cartItems = JSON.parse(localStorage.getItem("cart"));
+      state.totalPrice = JSON.parse(localStorage.getItem("cartPrice"));
+      state.totalQuantity = JSON.parse(localStorage.getItem("cartQuantity"));
+      console.log(state.totalPrice);
+    },
     AddToCart: (state, action) => {
       const { product, quantity } = action.payload;
+
       let CheckCartItems;
       CheckCartItems = state.cartItems.find((item) => item._id === product._id);
       console.log(CheckCartItems);
@@ -54,6 +65,13 @@ export const cartSlice = createSlice({
       console.log("added to cart ran");
       console.log(product.name);
       console.log(state.cartItems);
+      localStorage.setItem("cart", JSON.stringify(state.cartItems));
+      localStorage.setItem("cartPrice", JSON.stringify(state.totalPrice));
+      localStorage.setItem("cartQuantity", JSON.stringify(state.totalQuantity));
+      toast.success(`${product.name}, Added to cart!`, {
+        progress: undefined,
+        theme: "colored",
+      });
     },
     Remove: (state, action) => {
       console.log(current(state));
@@ -67,6 +85,9 @@ export const cartSlice = createSlice({
         (item) => item._id !== product._id
       );
       state.cartItems = newCartItems;
+      localStorage.setItem("cart", JSON.stringify(state.cartItems));
+      localStorage.setItem("cartPrice", JSON.stringify(state.totalPrice));
+      localStorage.setItem("cartQuantity", JSON.stringify(state.totalQuantity));
     },
     TogglecartQty: (state, action) => {
       const { _id: id, value } = action.payload;
@@ -101,6 +122,7 @@ export const cartSlice = createSlice({
 export const {
   increment,
   decrement,
+  SetCart,
   AddToCart,
   Remove,
   TogglecartQty,

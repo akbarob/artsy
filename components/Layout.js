@@ -1,15 +1,42 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useSelector, useDispatch } from "react-redux";
+// import { setNavbarVisibility,na } from "../Redux/generalSlice";
 function Layout({ children }) {
   const router = useRouter();
+  const dispatch = useDispatch();
+  const navbarVisible = useSelector((state) => state.general.navbarVisible);
+  const footerVisible = useSelector((state) => state.general.footerVisible);
+
+  const [MobileNav, setMobileNav] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   console.log(router.pathname);
 
+  const listenToScroll = () => {
+    let heightToHideFrom = 500;
+    const winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
+
+    if (winScroll > heightToHideFrom) {
+      isVisible && // to limit setting state only the first time
+        setIsVisible(false);
+    } else {
+      setIsVisible(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", listenToScroll);
+    return () => window.removeEventListener("scroll", listenToScroll);
+  }, []);
+
   return (
-    <div>
+    <div className="">
       <Head>
         <title>Artsy</title>
       </Head>
@@ -28,11 +55,23 @@ function Layout({ children }) {
         rel="stylesheet"
       ></link>
 
-      <header className="sticky top-0">
-        <Navbar />
+      <header className="sticky top-0 z-50 overscroll-none ">
+        {isVisible && navbarVisible && (
+          <Navbar MobileNav={MobileNav} setMobileNav={setMobileNav} />
+        )}
       </header>
-      <main>{children}</main>
-      <footer>{router.pathname == "/Checkout" ? "" : <Footer />}</footer>
+      {MobileNav ? (
+        ""
+      ) : (
+        <main>
+          <ToastContainer />
+          {children}
+        </main>
+      )}
+      <footer>
+        {/* {router.pathname == "/Checkout" ? "" : <Footer />} */}
+        {footerVisible ? <Footer /> : ""}
+      </footer>
     </div>
   );
 }

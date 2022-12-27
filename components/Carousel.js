@@ -22,7 +22,7 @@ const CarouselImages = [
 ];
 const Carousel = () => {
   return (
-    <div className="w-[90%]">
+    <div className="w-[80%] px-2 md:px-0">
       <div className=" hidden md:block">
         <Swiper
           spaceBetween={30}
@@ -57,16 +57,16 @@ const Carousel = () => {
           effect={"cards"}
           grabCursor={true}
           modules={[EffectCards]}
-          className="mySwiper"
+          className="mySwiper z-10"
         >
           {CarouselImages.map((image, i) => (
             <SwiperSlide key={i}>
-              <Image
+              <img
                 src={image}
                 alt=""
                 width={100}
                 height={30}
-                className="object-fit w-full h-[300px]"
+                className="object-fit w-full h-[300px] z-10"
               />
             </SwiperSlide>
           ))}
