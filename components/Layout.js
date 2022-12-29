@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector, useDispatch } from "react-redux";
-// import { setNavbarVisibility,na } from "../Redux/generalSlice";
+
 function Layout({ children }) {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -14,26 +14,32 @@ function Layout({ children }) {
   const footerVisible = useSelector((state) => state.general.footerVisible);
 
   const [MobileNav, setMobileNav] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  console.log(router.pathname);
+  const [isVisible, setIsVisible] = useState();
+  const [lastscroll, setLastscroll] = useState(0);
+  // console.log(router.pathname, window.pageYOffset);
 
-  const listenToScroll = () => {
-    let heightToHideFrom = 390;
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
-
-    if (winScroll > heightToHideFrom) {
-      isVisible && // to limit setting state only the first time
+  function ControlNavbar() {
+    if (typeof window !== "undefined") {
+      if (window.scrollY > lastscroll) {
         setIsVisible(false);
-    } else {
-      setIsVisible(true);
+      } else {
+        setIsVisible(true);
+      }
     }
-  };
+    setLastscroll(window.scrollY); // => scroll position
+    console.log(window.scrollY, lastscroll, isVisible);
+  }
 
   useEffect(() => {
-    window.addEventListener("scroll", listenToScroll);
-    return () => window.removeEventListener("scroll", listenToScroll);
-  }, [listenToScroll]);
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", ControlNavbar);
+    }
+
+    //clean up
+    return () => {
+      window.removeEventListener("scroll", ControlNavbar);
+    };
+  }, [lastscroll]);
 
   return (
     <div className="">
@@ -55,10 +61,10 @@ function Layout({ children }) {
         rel="stylesheet"
       ></link>
 
-      <header className="sticky top-0 z-50 overscroll-none ">
-        {isVisible && navbarVisible && (
-          <Navbar MobileNav={MobileNav} setMobileNav={setMobileNav} />
-        )}
+      <header
+        className={`sticky ${isVisible ? "top-0" : ""} z-50 overscroll-none `}
+      >
+        <Navbar MobileNav={MobileNav} setMobileNav={setMobileNav} />
       </header>
       {MobileNav ? (
         ""

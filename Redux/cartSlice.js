@@ -45,7 +45,9 @@ export const cartSlice = createSlice({
       const { product, quantity } = action.payload;
 
       let CheckCartItems;
-      CheckCartItems = state.cartItems.find((item) => item._id === product._id);
+      CheckCartItems = state.cartItems?.find(
+        (item) => item._id === product._id
+      );
       console.log(CheckCartItems);
       state.totalPrice = state.totalPrice + product.price * quantity;
       state.totalQuantity = state.totalQuantity + quantity;

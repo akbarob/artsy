@@ -5,7 +5,7 @@ import { TogglecartQty, Remove } from "../Redux/cartSlice";
 const Cartitem = ({ product }) => {
   const { name, image, price, quantity, creator, _id } = product;
   const dispatch = useDispatch();
-  // console.log(product);
+  console.log(product);
   return (
     <div className="flex justify-between items-start w-full mb-[50px] pb-14 border-b-2 mt-6 px-2 ">
       <img

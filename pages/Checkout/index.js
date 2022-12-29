@@ -5,6 +5,10 @@ import Cartitem from "../../components/Cartitem";
 import PaymentDetails from "../../components/PaymentDetails";
 import ShippingDetails from "../../components/ShippingDetails";
 import { SetCart } from "../../Redux/cartSlice";
+import {
+  setFooterVisibility,
+  setNavbarVisibility,
+} from "../../Redux/generalSlice";
 const routes = ["Shopping Cart", "Shopping Details", "Payment Details"];
 
 const ShoppingCart = () => {
@@ -18,12 +22,15 @@ const ShoppingCart = () => {
   // console.log(cart);
 
   useEffect(() => {
-    // const items = JSON.parse(localStorage.getItem("cart"));
-    // const price = JSON.parse(localStorage.getItem("cartPrice"));
-    // const quantity = JSON.parse(localStorage.getItem("cartQuantity"));
     dispatch(SetCart());
     // console.log("cartset");
     // console.log(items, price, quantity);
+    dispatch(setNavbarVisibility(false));
+    dispatch(setFooterVisibility(false));
+    return () => {
+      dispatch(setNavbarVisibility(true));
+      dispatch(setFooterVisibility(true));
+    };
   }, [dispatch]);
   const style = {
     details_div: "flex justify-between items-center w-full md:mb-[32px]",
@@ -32,7 +39,7 @@ const ShoppingCart = () => {
   };
   return (
     <div className="flex flex-col md:px-32 px-4 h-full mb-16">
-      {cart && (
+      {cart?.length >= 1 && (
         <div className="flex justify-center items-center mt-[32px] mb-[80px]">
           {routes.map((item, i) => (
             <h2
@@ -54,7 +61,7 @@ const ShoppingCart = () => {
           {cart?.length >= 1 ? (
             <div>
               <div className="h-[65vh] md:h-[80vh] overflow-y-auto  border-t-2 ">
-                {cart.map((item, i) => (
+                {cart?.map((item, i) => (
                   <Cartitem count={count} product={item} key={i} />
                 ))}
               </div>

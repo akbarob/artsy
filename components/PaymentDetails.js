@@ -18,7 +18,7 @@ const style = {
     "border-[0.5px] border-[#747474] border-solid bg-[#F2F2F2] rounded-[10px] w-full h-[50px] indent-3 outline-none",
 };
 
-const PaymentDetails = () => {
+const PaymentDetails = ({ userData }) => {
   const count = useSelector((state) => state.cart.qty);
   const cart = useSelector((state) => state.cart.cartItems);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
