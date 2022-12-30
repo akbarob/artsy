@@ -1,12 +1,27 @@
 import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import Carousel from "../../components/Carousel";
 import Explore from "../../components/Explore";
 import FeaturedProducts from "../../components/FeaturedProducts";
 import Footer from "../../components/Footer";
 import Section from "../../components/Section";
 import TopCreators from "../../components/TopCreators";
+import {
+  setFooterVisibility,
+  setNavbarVisibility,
+} from "../../Redux/generalSlice";
 
 const index = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    // dispatch(setNavbarVisibility(false));
+    dispatch(setFooterVisibility(true));
+    localStorage.clear();
+    return () => {
+      // dispatch(setNavbarVisibility(true));
+      dispatch(setFooterVisibility(false));
+    };
+  }, [dispatch]);
   return (
     <div className="flex flex-col justify-center items-center z-10">
       <h1 className="font-clashDisplay font-semibold text-[32px] md:text-[80px] text-center max-w-[362px] md:max-w-[1068px]">

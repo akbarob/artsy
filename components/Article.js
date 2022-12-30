@@ -13,16 +13,16 @@ const Article = ({ image, title, text }) => {
         <div
           className={`bg-black/60 hidden opacity-80 justify-evenly items-center absolute inset-y-0 inset-x-0 w-full h-full md:group-hover:flex px-4 text-white`}
         >
-          <p>View Product</p>
+          <p className="text-[40px] font-clashDisplay">View Product</p>
           <Image
-            src="/arrow-right.svg"
+            src="/arrow-right-home.svg"
             alt="arrow-right"
             height={78}
             width={78}
             className="cursor-pointer "
           />
         </div>
-        <div className="absolute inset-y-0 inset-x-0 flex flex-col justify-center items-center bg-black/50 py-3">
+        {/* <div className="absolute inset-y-0 inset-x-0 flex flex-col justify-center items-center bg-black/50 py-3">
           <h4 className="font-bold text-[20px] font-clashDisplay text-white text-center">
             {title}
           </h4>
@@ -33,7 +33,7 @@ const Article = ({ image, title, text }) => {
             width={78}
             className="cursor-pointer ml-40 mt-[40px]"
           />
-        </div>
+        </div> */}
       </div>
       <div className="flex flex-col h-[255px] justify-evenly">
         <h3 className="hidden md:flex font-bold text-[40px] font-clashDisplay text-left ">
