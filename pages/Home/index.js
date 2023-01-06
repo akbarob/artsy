@@ -11,7 +11,7 @@ import {
   setNavbarVisibility,
 } from "../../Redux/generalSlice";
 
-const index = () => {
+const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     // dispatch(setNavbarVisibility(false));
@@ -41,4 +41,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Home;

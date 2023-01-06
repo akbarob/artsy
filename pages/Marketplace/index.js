@@ -49,9 +49,6 @@ const Marketplace = ({ product }) => {
       ? filtered.some((item) => list.category.includes(item))
       : product
   );
-  useEffect(() => {
-    console.log("filterd:", filtered, filteredData);
-  }, [filtered]);
 
   function Ascending() {
     setFiltered(filteredData.sort((a, b) => a.name.localeCompare(b.name)));
