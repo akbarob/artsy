@@ -27,7 +27,7 @@ function Layout({ children }) {
       }
     }
     setLastscroll(window.scrollY); // => scroll position
-    console.log(window.scrollY, lastscroll, isVisible);
+    // console.log(window.scrollY, lastscroll, isVisible);
   }
 
   useEffect(() => {

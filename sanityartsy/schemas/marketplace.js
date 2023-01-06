@@ -50,5 +50,22 @@ export default {
       title: 'Status',
       type: 'string',
     },
+    {
+      name: 'category',
+      title: 'Category',
+      type: 'string',
+    },
+  ],
+  orderings: [
+    {
+      title: 'price',
+      name: 'Price',
+      by: [{field: 'price', direction: 'asc'}],
+    },
+    {
+      title: 'creator',
+      name: 'Creator',
+      by: [{field: 'creator', direction: 'asc'}],
+    },
   ],
 }
