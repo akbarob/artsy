@@ -71,13 +71,16 @@ const Marketplace = ({ product }) => {
           <p className="hidden md:flex text-[18px] text-black font-normal">
             See 1-6 of 15 results
           </p>
-          <select className="lg:hidden border-black border-2 rounded-md px-2 py-1">
-            <option>Filter</option>
-            <option>Art </option>
-            <option>Editorials</option>
-            <option>Fashion</option>
-            <option>Nature</option>
-            <option>Optics</option>
+          <select
+            className="lg:hidden border-black border-2 rounded-md px-2 py-1"
+            placeholder={"filter"}
+          >
+            {CheckList.map((list, i) => (
+              <option key={i} value={list.value}>
+                {console.log("hereree List", list.value)}
+                {list.name}
+              </option>
+            ))}
           </select>
           <select className="border-black border-2 rounded-md px-6 py-1">
             <option disabled>Sortby</option>

@@ -23,18 +23,18 @@ const Section = () => {
   }
 
   return (
-    <div className="w-full h-full bg-gradient-to-r from-[#4693ED] via-[#79C2D2] to-[#C05609]/50 px-20">
+    <div className="w-full h-full bg-gradient-to-r from-[#4693ED] via-[#79C2D2] to-[#C05609]/50 lg:px-20 p-6 lg:py-0">
       <div className="ml-20 hidden md:block mb-[21px]">
         <p className="leading-[54px] text-[40px] font-medium text-white border-b-2 border-b-white w-[730px] py-2">
           See Upcoming Auctions and Exhibitions
         </p>
       </div>
 
-      <div className="">
-        <div className="relative flex flex-col justify-center items-center h-[269px] lg:h-[546px]">
+      <div className="py-4">
+        <div className="relative flex flex-col justify-center items-center h-[269px] lg:h-[546px] ">
           <AnimatePresence>
             <motion.img
-              className="w-full h-full object-cover "
+              className="w-full h-full object-cover"
               src={Images[index]}
               key={Images[index]}
               alt="creator"
@@ -48,18 +48,20 @@ const Section = () => {
             alt="sec"
             src="/images/Section-Img.png"
           /> */}
-          <div className="absolute bottom-8 text-white h-1/3 w-[80%]">
+          <div className="absolute bottom-20 lg:bottom-8 text-white h-1/3 w-[80%]">
             <div className="flex  h-full w-full">
               <div className="flex justify-center items-center h-full ">
-                <p className="text-[67px] font-clashDisplay">0{index}</p>
+                <p className="text-[40px] lg:text-[67px] font-clashDisplay">
+                  0{index + 1}
+                </p>
               </div>
               <div className="ml-[20px] flex flex-col justify-evenly items-start  w-full">
-                <p className="uppercase lg:text-[30pxks] lg:max-w-[356px] font-clashDisplay">
+                <p className="uppercase text-[20px] lg:text-[30px] lg:max-w-[356px] font-clashDisplay">
                   Monalisa Redefined in style
                 </p>
                 <p className="text-[13.46px] ">Start on : 08:00 GMT Monday</p>
-                <div className="flex w-full justify-between items-center">
-                  <p className="font-[500] text-[15px] lg:max-w-[428px]">
+                <div className="flex flex-col lg:flex-row  w-full justify-between items-center">
+                  <p className="font-[500] text-[10px] lg:text-[15px] lg:max-w-[428px]">
                     GET EXCLUSIVE VIEWING OF CONTEMPORARY ART AND CONNECT WITH
                     INVESTORS AND AUCTIONEERS ACROSS THE WORLD BRINGING THEIR
                     HIGHEST AND LOWEST BIDS.
@@ -75,9 +77,9 @@ const Section = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-between items-center mx-20 my-4">
+        <div className="hidden lg:flex justify-between items-center mx-20 my-4">
           <div>
-            <input type="range" value={index} max={2} />
+            <input type="range" value={index} max={2} className="" />
           </div>
           <div className="flex">
             <img

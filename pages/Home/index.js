@@ -23,7 +23,7 @@ const Home = () => {
     };
   }, [dispatch]);
   return (
-    <div className="flex flex-col justify-center items-center z-10">
+    <div className="flex flex-col justify-center items-center ">
       <h1 className="font-clashDisplay font-semibold text-[32px] md:text-[80px] text-center max-w-[362px] md:max-w-[1068px]">
         Photography is poetry & beautiful untold stories
       </h1>

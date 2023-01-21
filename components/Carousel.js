@@ -121,7 +121,7 @@ const Carousel = () => {
         </Swiper>
       </div> */}
 
-      <div className=" px-10 md:hidden my-10">
+      <div className=" px-10 lg:hidden my-10">
         <Swiper
           effect={"cards"}
           grabCursor={true}
@@ -142,7 +142,7 @@ const Carousel = () => {
         </Swiper>
       </div>
 
-      <div className="flex justify-evenly gap-x-2 w-full h-[500px]">
+      <div className="hidden lg:flex justify-evenly gap-x-2 w-full h-[500px]">
         {/* <div>
           <AnimatePresence>
             <motion.img
